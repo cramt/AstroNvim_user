@@ -1,5 +1,8 @@
 -- set vim options here (vim.<first_key>.<second_key> = value)
 return {
+  o = {
+    guifont = "Hack,Noto_Color_Emoji",
+  },
   opt = {
     -- set to true or false etc.
     relativenumber = false, -- sets vim.opt.relativenumber

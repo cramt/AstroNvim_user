@@ -16,7 +16,7 @@ return {
         if node.type == "directory" or node:has_children() then
           if not node:is_expanded() then -- if unexpanded, expand
             state.commands.toggle_node(state)
-          else                           -- if expanded and has children, seleect the next child
+          else -- if expanded and has children, seleect the next child
             require("neo-tree.ui.renderer").focus_node(state, node:get_child_ids()[1])
           end
         else -- if not a directory just open it
@@ -30,7 +30,7 @@ return {
       source_selector = {
         winbar = true,
         content_layout = "center",
-        tab_labels = {
+        sources = {
           filesystem = get_icon "FolderClosed" .. " File",
           buffers = get_icon "DefaultFile" .. " Bufs",
           git_status = get_icon "Git" .. " Git",
@@ -74,7 +74,9 @@ return {
         },
       },
       filesystem = {
-        follow_current_file = true,
+        follow_current_file = {
+          enabled = true,
+        },
         hijack_netrw_behavior = "open_current",
         use_libuv_file_watcher = true,
         commands = global_commands,
